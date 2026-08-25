@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>PhishGuard — Dashboard</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<header class="dashboard-nav">
+
+    <div class="logo-area">
+
+        <div class="logo-box">
+            PG
+        </div>
+
+        <div>
+
+            <strong>
+                PHISHGUARD
+            </strong>
+
+            <small>
+                URL SECURITY
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-right">
+
+        <span>
+            Hi, {{ username }}
+        </span>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+
+<section class="welcome">
+
+    <p class="mini-label">
+        SECURITY DASHBOARD
+    </p>
+
+    <h1>
+        Analyze before<br>
+        <span>you click.</span>
+    </h1>
+
+    <p>
+        Detect suspicious URL patterns using
+        automated security analysis.
+    </p>
+
+</section>
+
+
+<section class="scanner-card">
+
+    <div class="scanner-heading">
+
+        <div>
+
+            <small>
+                URL THREAT ANALYSIS
+            </small>
+
+            <h2>
+                Scan a website
+            </h2>
+
+        </div>
+
+        <div class="status-pill">
+            ● SYSTEM ONLINE
+        </div>
+
+    </div>
+
+
+    <div class="url-input">
+
+        <input
+            id="urlInput"
+            placeholder="https://example.com"
+        >
+
+        <button
+            onclick="scanURL()"
+            id="scanButton"
+        >
+            Scan URL →
+        </button>
+
+    </div>
+
+
+    <div
+        id="result"
+        class="scan-result"
+    >
+
+        <div>
+
+            <small>
+                SECURITY STATUS
+            </small>
+
+            <h3 id="resultTitle">
+                READY
+            </h3>
+
+            <p id="resultMessage">
+                Enter a URL to begin analysis.
+            </p>
+
+        </div>
+
+
+        <div class="risk-score">
+
+            <small>
+                RISK
+            </small>
+
+            <strong id="riskScore">
+                --
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="reasons"
+        class="reasons"
+    ></div>
+
+</section>
+
+
+<!-- RECENT HISTORY -->
+
+<section class="history-section">
+
+    <div class="section-title">
+
+        <div>
+
+            <small>
+                ACTIVITY
+            </small>
+
+            <h2>
+                Recent scans
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div id="historyList">
+
+        <div class="empty-history">
+            Loading scan history...
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    PHISHGUARD © 2026
+    <span>•</span>
+    SECURITY EDUCATIONAL PROJECT
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+
+</html>

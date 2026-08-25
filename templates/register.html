@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>PhishGuard — Register</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="auth-page">
+
+<div class="auth-card">
+
+    <div class="auth-logo">
+        PG
+    </div>
+
+    <p class="mini-label">
+        PHISHGUARD SECURITY
+    </p>
+
+    <h1>
+        Create account.
+    </h1>
+
+    <p class="auth-subtitle">
+        Start analyzing suspicious URLs securely.
+    </p>
+
+
+    {% if error %}
+
+        <div class="error">
+            {{ error }}
+        </div>
+
+    {% endif %}
+
+
+    <form method="POST">
+
+        <label>Username</label>
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Choose username"
+            required
+        >
+
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Create password"
+            required
+        >
+
+
+        <button class="primary-button">
+
+            Create Account
+
+            <span>→</span>
+
+        </button>
+
+    </form>
+
+
+    <p class="switch-auth">
+
+        Already have an account?
+
+        <a href="/login">
+            Sign in
+        </a>
+
+    </p>
+
+</div>
+
+</body>
+
+</html>
