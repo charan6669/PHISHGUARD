@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>PhishGuard — Dashboard</title>
+    <title>PhishGuard — Security Dashboard</title>
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
@@ -22,18 +22,14 @@
     <div class="logo-area">
 
         <div class="logo-box">
-            PG
+            🛡️
         </div>
 
-        <div>
+        <div class="logo-text">
 
-            <strong>
-                PHISHGUARD
-            </strong>
+            <strong>PHISHGUARD</strong>
 
-            <small>
-                URL SECURITY
-            </small>
+            <small>Professional Security Analysis</small>
 
         </div>
 
@@ -42,12 +38,12 @@
 
     <div class="nav-right">
 
-        <span>
-            Hi, {{ username }}
-        </span>
+        <div class="user-info">
+            <span class="username">{{ username }}</span>
+        </div>
 
-        <a href="/logout">
-            Logout
+        <a href="/logout" class="logout-btn">
+            Sign Out
         </a>
 
     </div>
@@ -58,135 +54,121 @@
 <main class="dashboard">
 
 
-<section class="welcome">
+<section class="hero">
 
-    <p class="mini-label">
-        SECURITY DASHBOARD
-    </p>
+    <div class="hero-content">
 
-    <h1>
-        Analyze before<br>
-        <span>you click.</span>
-    </h1>
+        <p class="section-label">URL SECURITY ANALYSIS</p>
 
-    <p>
-        Detect suspicious URL patterns using
-        automated security analysis.
-    </p>
+        <h1>Protect Your Browsing</h1>
+
+        <p class="hero-description">
+            Advanced phishing detection and URL security analysis. 
+            Identify suspicious links before you click.
+        </p>
+
+    </div>
 
 </section>
 
 
-<section class="scanner-card">
+<section class="scanner-section">
 
-    <div class="scanner-heading">
+    <div class="scanner-card">
 
-        <div>
+        <div class="card-header">
 
-            <small>
-                URL THREAT ANALYSIS
-            </small>
+            <div>
+                <h2>URL Security Scanner</h2>
+                <p>Enter any URL to analyze potential threats</p>
+            </div>
 
-            <h2>
-                Scan a website
-            </h2>
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                ACTIVE
+            </div>
 
         </div>
 
-        <div class="status-pill">
-            ● SYSTEM ONLINE
+
+        <div class="input-group">
+
+            <input
+                id="urlInput"
+                type="url"
+                placeholder="Enter URL (e.g., https://example.com)"
+                class="url-input-field"
+            >
+
+            <button
+                onclick="scanURL()"
+                id="scanButton"
+                class="scan-btn"
+            >
+                Analyze URL
+            </button>
+
         </div>
 
-    </div>
 
-
-    <div class="url-input">
-
-        <input
-            id="urlInput"
-            placeholder="https://example.com"
+        <div
+            id="result"
+            class="result-box"
         >
 
-        <button
-            onclick="scanURL()"
-            id="scanButton"
-        >
-            Scan URL →
-        </button>
+            <div class="result-left">
 
-    </div>
+                <div class="result-label">STATUS</div>
+
+                <div class="result-title" id="resultTitle">
+                    Ready
+                </div>
+
+                <div class="result-message" id="resultMessage">
+                    Enter a URL to begin analysis
+                </div>
+
+            </div>
 
 
-    <div
-        id="result"
-        class="scan-result"
-    >
+            <div class="result-right">
 
-        <div>
+                <div class="risk-label">RISK SCORE</div>
 
-            <small>
-                SECURITY STATUS
-            </small>
+                <div class="risk-value" id="riskScore">
+                    --
+                </div>
 
-            <h3 id="resultTitle">
-                READY
-            </h3>
-
-            <p id="resultMessage">
-                Enter a URL to begin analysis.
-            </p>
+            </div>
 
         </div>
 
 
-        <div class="risk-score">
-
-            <small>
-                RISK
-            </small>
-
-            <strong id="riskScore">
-                --
-            </strong>
-
-        </div>
+        <div
+            id="reasons"
+            class="threat-reasons"
+        ></div>
 
     </div>
-
-
-    <div
-        id="reasons"
-        class="reasons"
-    ></div>
 
 </section>
 
-
-<!-- RECENT HISTORY -->
 
 <section class="history-section">
 
-    <div class="section-title">
+    <div class="section-header">
 
-        <div>
+        <h2>Scan History</h2>
 
-            <small>
-                ACTIVITY
-            </small>
-
-            <h2>
-                Recent scans
-            </h2>
-
-        </div>
+        <p>Your recent security scans</p>
 
     </div>
 
 
-    <div id="historyList">
+    <div id="historyList" class="history-list">
 
-        <div class="empty-history">
-            Loading scan history...
+        <div class="empty-state">
+            <p>No scans yet. Start by analyzing a URL above.</p>
         </div>
 
     </div>
@@ -197,11 +179,13 @@
 </main>
 
 
-<footer>
+<footer class="app-footer">
 
-    PHISHGUARD © 2026
-    <span>•</span>
-    SECURITY EDUCATIONAL PROJECT
+    <p>
+        PhishGuard © 2026 
+        <span class="separator">•</span> 
+        Security Education Project
+    </p>
 
 </footer>
 
